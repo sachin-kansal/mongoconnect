@@ -23,7 +23,7 @@ public class MongoConnector extends SourceConnector{
 	@Override
 	public void start(Map<String, String> props) {
 		// TODO Auto-generated method stub
-		MongoDef myconfig = new MongoDef(props);
+		 myconfig = new MongoDef(props);
 
 	}
 
@@ -36,17 +36,15 @@ public class MongoConnector extends SourceConnector{
 	@Override
 	public List<Map<String, String>> taskConfigs(int maxTasks) {
 		// TODO Auto-generated method stub
+		maxTasks = 1;
 		ArrayList<Map<String,String>> configs = new ArrayList<>(maxTasks);
-		for (int i=0; i<=maxTasks; i++) {
-			configs.add(myconfig.originalsStrings());
-		}
+		configs.add(myconfig.originalsStrings());
 		return configs;
 	}
 
 	@Override
 	public void stop() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
