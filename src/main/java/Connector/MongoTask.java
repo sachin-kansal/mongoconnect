@@ -35,9 +35,8 @@ public class MongoTask extends SourceTask{
 		config = props;
 		String URI = config.get("connect.uri");
 		mongoclient = MongoClients.create(URI);
-		MongoDatabase database = mongoclient.getDatabase("myfirstdb");
-		collection = database.getCollection("myfirstcollection");
-		
+		MongoDatabase database = mongoclient.getDatabase(config.get("db.name"));
+		collection = database.getCollection(config.get("collection.name"));		
 	}
 
 	@Override
